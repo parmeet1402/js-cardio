@@ -68,3 +68,30 @@ const flatten = array =>
   );
 const data = [1, 2, [3, 4, [5]]];
 console.log(flatten(data)); // [1, 2, 3, 4, 5]
+
+/* => Chunks
+Write a method that splits an array into parts of determined size */
+export const chunk = (array, size) => {
+  const chunkedArr = [];
+  let index = 0;
+  while (index < array.length) {
+    chunkedArr.push(array.slice(index, size + index));
+    index += size;
+  }
+  return chunkedArr;
+};
+
+/* => Intersection
+Write a method that creates an array of unique values that are included in all given arrays */
+export const intersection = (...arrays) => {
+  const result = arrays[0].filter(element => {
+    const indexOfElement = arrays[1].indexOf(element);
+    if (indexOfElement >= 0) {
+      return element;
+    }
+  });
+  if (arrays.length > 2) {
+    intersection(result, ...arrays.slice(2, arrays.length));
+  }
+  return Array.from(new Set(result));
+};
