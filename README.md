@@ -22,3 +22,7 @@
 1. isEqual Function
 1. Invoke Function
 1. isEmptyDeep Function
+
+### String Functions
+
+1. isUnique Function
