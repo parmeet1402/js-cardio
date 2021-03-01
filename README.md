@@ -26,3 +26,4 @@
 ### String Functions
 
 1. isUnique Function
+1. checkPalindrome Function
