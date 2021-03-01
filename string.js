@@ -55,3 +55,10 @@ const checkPermutation1 = (str1, str2) => {
 
 checkPermutation1("aabcda", "aacba")
 
+// Urlify Function
+const urlify = (s1) => {
+  return s1.split(' ').join('%20');
+}
+
+let url = 'javascript algorithms'
+console.log(urlify(url));
