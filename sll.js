@@ -10,6 +10,7 @@ class SingleyLinkedList{
     constructor(){
         this.head = null;
         this.tail = null;
+        this.length = 0;
     }
 
     // add element at the end
