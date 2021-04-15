@@ -34,7 +34,7 @@ class BinarySearchTree{
                         current = current.left;
                     }else{
                         // if left isn't found, then assign the new node and return the tree
-                        current.next = newNode;
+                        current.left = newNode;
                         return this;
                     }
                 }else{
@@ -71,6 +71,123 @@ class BinarySearchTree{
             return false;
         }
     }
+
+
+    // breadth first traversal
+    bfs(){
+        // initialize queue, visisted array and current node with root node
+        let queue=[], visited = [], node = this.root;
+
+        // Add the root node to the queue
+        queue.push(node);
+
+        // Loop until queue isn't empty
+        while(queue.length !== 0){
+            // get the first item present in the queue
+            node = queue.shift();
+
+            // push the newly deleted out item from the queue
+            visited.push(node);
+
+            // if left contains a node, then add it the queue
+            if(node.left){
+                queue.push(node.left)
+            }
+
+            // if right property contains a node, then add it to the queue
+            if(node.right){
+                queue.push(node.right)
+            }
+        }
+        return visited;
+    }
+
+    dfsPreOrder(){
+        let visited= [];
+
+        // helper function with current variable
+        const traverse = (node) => {
+            // push the node to the visited array
+            visited.push(node);
+
+            // if left property of the node exists, then call this function on it as well
+            if(node.left){
+                traverse(node.left)
+            }
+
+            // if right property of the node exists, then call this function on it as well
+            if(node.right){
+                traverse(node.right)
+            }
+        }
+
+        // call the traverse function for the root node
+        traverse(this.root)
+        return visited;
+
+    }
+
+    dfsPostOrder(){
+        let visited= [];
+
+        // helper function with current variable
+        const traverse = (node) => {
+            // if left property of the node exists, then call this function on it as well
+            if(node.left){
+                traverse(node.left)
+            }
+
+            // if right property of the node exists, then call this function on it as well
+            if(node.right){
+                traverse(node.right)
+            }
+
+            // push the node to the visited array
+            visited.push(node);
+        }
+
+        // call the traverse function for the root node
+        traverse(this.root)
+        console.log(visited)
+        return visited;
+    }
+
+    dfsInOrder(){
+        let visited= [];
+
+        // helper function with current variable
+        const traverse = (node) => {
+            // if left property of the node exists, then call this function on it as well
+            if(node.left){
+                traverse(node.left)
+            }
+            // push the node to the visited array
+            visited.push(node);
+            
+            // if right property of the node exists, then call this function on it as well
+            if(node.right){
+                traverse(node.right)
+            }
+        }
+
+        // call the traverse function for the root node
+        traverse(this.root)
+        console.log(visited)
+        return visited;
+    }
+
 }
 
 const tree = new BinarySearchTree();
+tree.insert(10);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
+// tree.bfs();
+// tree.dfsPreOrder();
+// tree.dfsPostOrder();
+// tree.dfsInOrder();
+
+
