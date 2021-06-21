@@ -64,3 +64,12 @@
 6. Set
 7. Insert
 8. Remove
+
+### Tree
+
+1. Insert
+2. Contains
+3. BFS Traversal
+4. DFS Pre Order Traversal
+5. DFS Post Order Traversal
+6. DFS In Order Traversal
